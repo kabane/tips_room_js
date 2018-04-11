@@ -3,6 +3,7 @@
 /yarn-error.log
 /public/assets
 .byebug_history
+/tmp/*
 /config/master.key
 .DS_Store
 .editorconfig
