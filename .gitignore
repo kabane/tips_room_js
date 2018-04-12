@@ -29,7 +29,7 @@ releases/*
 ERD.pdf
 *.dump.sql
 nbproject
-# config/database.yml
+#config/database.yml
 .rbenv-version
 vendor/bundle/*
 .env
