@@ -1,4 +1,5 @@
 class Tip < ApplicationRecord
+  belongs_to :user
 
   class HTMLwithCoderay < Redcarpet::Render::HTML
     def block_code(code, language)
@@ -18,5 +19,9 @@ class Tip < ApplicationRecord
     }
     markdown = Redcarpet::Markdown.new(render, options)
     markdown.render(self.contents).html_safe
+  end
+
+  def owner?(current_user)
+    self.user == current_user
   end
 end

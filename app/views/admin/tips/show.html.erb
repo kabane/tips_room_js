@@ -10,5 +10,5 @@
   <%= @tip.to_html %>
 </p>
 
-<%= link_to 'Edit', edit_tip_path(@tip) if current_user.present? && current_user.admin? %>
-<%= link_to 'Back', tips_path %>
+<%= link_to 'Edit', edit_admin_tip_path(@tip) if current_user.present? && current_user.admin? %>
+<%= link_to 'Back', admin_tips_path %>
