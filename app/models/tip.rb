@@ -1,5 +1,8 @@
 class Tip < ApplicationRecord
   belongs_to :user
+  scope :published_only, -> { where(status: :published) }
+
+  enum status: {draft: 0, published: 1}
 
   class HTMLwithCoderay < Redcarpet::Render::HTML
     def block_code(code, language)
