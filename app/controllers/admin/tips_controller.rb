@@ -1,4 +1,6 @@
 class Admin::TipsController < ApplicationController
+  layout 'admin'
+
   before_action :authenticate_user!
   before_action :set_tip, only: [:show, :edit, :update, :destroy]
   before_action :owner?, only: [:edit, :update, :destroy]
