@@ -23,6 +23,7 @@ class Admin::TipsController < ApplicationController
   # POST /tips.json
   def create
     @tip = current_user.tips.new(tip_params)
+    @tip.status = :draft if params["draft_btn"].present?
 
     respond_to do |format|
       if @tip.save
@@ -38,6 +39,12 @@ class Admin::TipsController < ApplicationController
   # PATCH/PUT /tips/1
   # PATCH/PUT /tips/1.json
   def update
+    if params["draft_btn"].present?
+      @tip.status = :draft
+    else
+      @tip.status = :published
+    end
+
     respond_to do |format|
       if @tip.update(tip_params)
         format.html { redirect_to admin_tip_path(@tip), notice: 'Tip was successfully updated.' }

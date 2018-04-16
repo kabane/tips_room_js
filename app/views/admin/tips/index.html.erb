@@ -17,6 +17,7 @@
         <td><%= tip.title %></td>
         <td><%= tip.contents %></td>
         <td><%= link_to 'Show', admin_tip_path(tip) %></td>
+        <td><%= 下書き if tip.draft? %></td>
       </tr>
     <% end %>
   </tbody>

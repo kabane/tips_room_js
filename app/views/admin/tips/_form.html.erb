@@ -1,3 +1,7 @@
+<% if tip.draft? %>
+  下書き保存中
+<% end %>
+
 <% if tip.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(tip.errors.count, "error") %> prohibited this tip from being saved:</h2>
@@ -21,5 +25,6 @@
 </div>
 
 <div class="actions">
-  <%= form.submit %>
+  <%= form.submit "保存", name: :save_btn %>
+  <%= form.submit "下書き保存", name: :draft_btn %>
 </div>
