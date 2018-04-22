@@ -1,0 +1,11 @@
+.container
+  .overlay
+  .contents_wrap
+    %h1.main_frase
+      = @tip.title
+    %p.post_date
+      = @tip.created_at.strftime('%Y/%m/%d')
+    .icon_group
+      = link_to 'h', tips_path, class: "icon_link"
+    .contents
+      = @tip.to_html
