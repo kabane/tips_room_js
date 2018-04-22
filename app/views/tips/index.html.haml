@@ -6,8 +6,10 @@
     %h1.main_frase.under_line
       All Tips
     .icon_group.under_line
-      = link_to 't', tips_path, class: "icon_link"
-      = link_to 'p', tips_path, class: "icon_link"
+      = link_to root_path, class: "icon_link" do
+        %i.fas.fa-home
+      = link_to tips_path, class: "icon_link" do
+        %i.fas.fa-search
     .tips_list
       - @tips.each do |tip|
         .tip_wrap

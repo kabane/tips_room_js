@@ -6,6 +6,7 @@
     %p.post_date
       = @tip.created_at.strftime('%Y/%m/%d')
     .icon_group
-      = link_to 'h', tips_path, class: "icon_link"
+      = link_to tips_path, class: "icon_link" do
+        %i.fas.fa-angle-left
     .contents
       = @tip.to_html

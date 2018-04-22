@@ -6,7 +6,9 @@
     %h1.main_frase
       管理者の「あの処理JavaScriptで書く時どうするんだっけ？」を解決するJavaScriptのtips
     .icon_group
-      = link_to 't', tips_path, class: "icon_link"
-      = link_to 'p', tips_path, class: "icon_link"
+      = link_to tips_path, class: "icon_link" do
+        %i.fab.fa-twitter
+      = link_to tips_path, class: "icon_link" do
+        %i.fas.fa-user
     .btn_group
       = link_to 'tips', tips_path, class: "btn btn-sm"
