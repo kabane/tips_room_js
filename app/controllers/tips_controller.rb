@@ -14,9 +14,4 @@ class TipsController < ApplicationController
     end
   end
 
-  private
-
-    def tip_params
-      params.require(:tip).permit(:title, :contents)
-    end
 end

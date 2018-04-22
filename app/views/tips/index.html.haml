@@ -13,5 +13,7 @@
         .tip_wrap
           %h2.tip_title
             = link_to tip.title, tip
+          %p.tip_desc
+            = tip.description
           .read_btn
             = link_to 'Read More', tips_path, class: "btn btn-md"

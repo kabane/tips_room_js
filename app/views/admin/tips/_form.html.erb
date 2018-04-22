@@ -20,11 +20,20 @@
 </div>
 
 <div class="field">
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+</div>
+
+<div class="field">
+  <%= form.label :status %>
+  <%= form.select :status, Tip.statuses.map { |k, v| [I18n.t("activerecord.tip.status.#{k}"), k] }, selected: tip.status %>
+</div>
+
+<div class="field">
   <%= form.label :contents %>
   <%= form.text_area :contents, class: "markdown_editor" %>
 </div>
 
 <div class="actions">
   <%= form.submit "保存", name: :save_btn %>
-  <%= form.submit "下書き保存", name: :draft_btn %>
 </div>

@@ -41,12 +41,6 @@ class Admin::TipsController < ApplicationController
   # PATCH/PUT /tips/1
   # PATCH/PUT /tips/1.json
   def update
-    if params["draft_btn"].present?
-      @tip.status = :draft
-    else
-      @tip.status = :published
-    end
-
     respond_to do |format|
       if @tip.update(tip_params)
         format.html { redirect_to admin_tip_path(@tip), notice: 'Tip was successfully updated.' }
@@ -74,7 +68,7 @@ class Admin::TipsController < ApplicationController
     end
 
     def tip_params
-      params.require(:tip).permit(:title, :contents)
+      params.require(:tip).permit(:title, :contents, :status, :description)
     end
 
     def owner?
