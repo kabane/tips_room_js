@@ -1,0 +1,17 @@
+.container
+  %p#notice
+    = notice
+  .overlay
+  .contents_wrap
+    %h1.main_frase
+      All Tips
+    .icon_group
+      = link_to 't', tips_path, class: "icon_link"
+      = link_to 'p', tips_path, class: "icon_link"
+    .tips_list
+      - @tips.each do |tip|
+        .tip_wrap
+          %h2.tip_title
+            = link_to tip.title, tip
+          .read_btn
+            = link_to 'Read More', tips_path, class: "btn btn-md"

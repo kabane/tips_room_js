@@ -4,9 +4,9 @@
     %title TipsRoomJs
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag    'service/application', media: 'all'
+    = stylesheet_link_tag    'project/public/application', media: 'all'
     = javascript_include_tag 'application'
-  %body
+  %body{class: "#{controller.controller_name} #{controller.action_name}"}
     - if notice
       %p.notice= notice
     - elsif alert
