@@ -1,5 +1,7 @@
 class Tip < ApplicationRecord
   belongs_to :user
+  has_many :tags, :through => :tip_tags
+
   scope :published_only, -> { where(status: :published) }
 
   enum status: {draft: 0, published: 1}
