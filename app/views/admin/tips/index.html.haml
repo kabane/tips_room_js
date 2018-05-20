@@ -1,28 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Tips</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Contents</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tips.each do |tip| %>
-      <tr>
-        <td><%= tip.title %></td>
-        <td><%= tip.contents %></td>
-        <td><%= link_to 'Show', admin_tip_path(tip) %></td>
-        <td><%= "下書き" if tip.draft? %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Tip', new_admin_tip_path if current_user.present? && current_user.try(:admin?) %>
+%p#notice= notice
+%h1 Tips
+%table
+  %thead
+    %tr
+      %th Title
+      %th Contents
+      %th{:colspan => "3"}
+  %tbody
+    - @tips.each do |tip|
+      %tr
+        %td= tip.title
+        %td= tip.contents
+        %td= link_to 'Show', admin_tip_path(tip)
+        %td= "下書き" if tip.draft?
+%br/
+= link_to 'New Tip', new_admin_tip_path if current_user.present? && current_user.try(:admin?)
