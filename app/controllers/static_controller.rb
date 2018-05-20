@@ -1,7 +1,7 @@
 class StaticController < ApplicationController
   layout 'static'
 
-  def index
+  def top
         
   end
 end

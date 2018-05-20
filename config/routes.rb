@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: "static#index"
+  root to: "static#top"
+
   devise_for :users, path: 'admin/users', controllers: {
     sessions: "admin/users/sessions"
   }, path_names: {sign_out: 'logout', sign_in: 'login'}
