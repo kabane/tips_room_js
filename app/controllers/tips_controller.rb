@@ -1,4 +1,6 @@
 class TipsController < ApplicationController
+  layout 'tips'
+
   # GET /tips
   # GET /tips.json
   def index
