@@ -1,17 +1,20 @@
-%p#notice= notice
-%h1 Tips
-%table
-  %thead
-    %tr
-      %th Title
-      %th Contents
-      %th{:colspan => "3"}
-  %tbody
-    - @tips.each do |tip|
-      %tr
-        %td= tip.title
-        %td= tip.contents
-        %td= link_to 'Show', admin_tip_path(tip)
-        %td= "下書き" if tip.draft?
-%br/
-= link_to 'New Tip', new_admin_tip_path if current_user.present? && current_user.try(:admin?)
+.container
+  = link_to '新規作成', new_admin_tip_path if current_user.present? && current_user.try(:admin?)
+
+  %h1 Tips
+  .col-md-12.col-xs-12
+    .row
+      - @tips.each do |tip|
+        .col-md-4.col-xs-12
+          .card
+            .card-body
+              %h2.card-title
+                = tip.title
+              %p.card-text
+                = tip.contents
+              %a.card-link
+                = link_to 'Show', admin_tip_path(tip)
+              - if tip.draft?
+                %span.badge.badge-secondary
+                  = "下書き"
+

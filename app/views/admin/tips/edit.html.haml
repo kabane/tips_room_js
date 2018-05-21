@@ -1,0 +1,5 @@
+.container
+  = form_with(model: @tip, local: true, url: admin_tip_path(@tip)) do |form|
+    = render 'form', tip: @tip, form: form
+
+  = link_to 'Back', admin_tip_path

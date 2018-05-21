@@ -1,8 +1,0 @@
-<h1>Editing Tip</h1>
-
-<%= form_with(model: @tip, local: true, url: admin_tip_path(@tip)) do |form| %>
-  <%= render 'form', tip: @tip, form: form %>
-<% end %>
-
-<%= link_to 'Show', @tip %> |
-<%= link_to 'Back', admin_tip_path %>

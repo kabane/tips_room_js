@@ -1,0 +1,9 @@
+.container
+  %p
+    %strong Title:
+    = @tip.title
+  %p
+    %strong Contents:
+    = @tip.to_html
+  = link_to 'Edit', edit_admin_tip_path(@tip) if current_user.present? && current_user.admin?
+  = link_to 'Back', admin_tips_path

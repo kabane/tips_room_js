@@ -1,0 +1,25 @@
+- if tip.draft?
+  %span.badge.badge-secondary
+    下書き保存中
+- if tip.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(tip.errors.count, "error")
+      prohibited this tip from being saved:
+    %ul
+      - tip.errors.full_messages.each do |message|
+        %li= message
+.form-group
+  = form.label :title
+  = form.text_field :title, class: "form-control"
+.form-group
+  = form.label :description
+  = form.text_field :description, class: "form-control", row: 5
+.form-group
+  = form.label :status
+  = form.select :status, Tip.statuses.map { |k, v| [I18n.t("activerecord.tip.status.#{k}"), k] }, {}, {selected: tip.status, class: "form-control"}
+.form-group
+  = form.label :contents
+  = form.text_area :contents, class: "markdown_editor form-control", row: 5
+.actions
+  = button_tag "保存", name: :save_btn, class: "btn btn-primary"

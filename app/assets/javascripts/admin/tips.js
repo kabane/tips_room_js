@@ -1,2 +1,4 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(function(){
+  var $code_ray = $('.CodeRay')
+  $code_ray.wrap('<div class="code_ray_wrap"></div>');
+});

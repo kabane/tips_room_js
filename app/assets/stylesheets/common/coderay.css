@@ -1,7 +1,7 @@
 .CodeRay {
-    background-color: #efefef;
+    background-color: rgb(16, 27, 37);
     font-family: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
-    color: #000;
+    color: #FFFFFF;
     margin-bottom: 14px;
 }
 
@@ -20,7 +20,7 @@ table.CodeRay td {
 }
 
 .CodeRay .line-numbers, .CodeRay .no {
-    background-color: #ECECEC;
+    background-color: rgb(12, 20, 27);
     color: #AAA;
     text-align: right;
 }

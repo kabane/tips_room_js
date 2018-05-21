@@ -5,14 +5,15 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'admin/application', media: 'all'
-    = javascript_include_tag 'application'
+    = javascript_include_tag 'admin/application'
   %body{class: "#{controller.controller_name} #{controller.action_name}"}
-    %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-      = link_to image_tag('logo.png'), root_path, class: 'navbar-brand'
+    %nav.navbar.navbar-expand-lg.navbar-light
+      = link_to image_tag('logo.png'), admin_tips_path, class: 'navbar-brand navbar_logo'
       - if user_signed_in?
-        = link_to 'ログアウト', destroy_user_session_path, method: :delete
-      - else
-        = link_to 'ログイン', user_session_path
+        .nav-link
+          = link_to "tips", admin_tips_path
+        .nav-link
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete
 
 
 
