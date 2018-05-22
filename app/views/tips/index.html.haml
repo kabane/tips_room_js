@@ -7,8 +7,8 @@
     .icon_group.under_line
       = link_to root_path, class: "icon_link" do
         %i.fas.fa-home
-      = link_to tips_path, class: "icon_link" do
-        %i.fas.fa-search
+      -#= link_to tips_path, class: "icon_link" do
+      -#  %i.fas.fa-search
     .tips_list
       - @tips.each do |tip|
         .tip_wrap

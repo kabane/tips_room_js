@@ -43,7 +43,11 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 # for auth
 gem 'devise'
 
+# for JS
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+
+# for SEO
+gem 'meta-tags'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
