@@ -8,8 +8,4 @@
     = stylesheet_link_tag 'static/application', media: 'all'
     = javascript_include_tag 'application'
   %body{class: "#{controller.controller_name} #{controller.action_name}"}
-    - if notice
-      %p.notice= notice
-    - elsif alert
-      %p.alert= alert
     = yield
