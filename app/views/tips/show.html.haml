@@ -5,14 +5,13 @@
                       description: :description }
 .container
   .contents_wrap
-    %h1.main_frase
+    %h1.post_title
       = @tip.title
-    %p.post_date
-      = @tip.created_at.strftime('%Y/%m/%d')
     .icon_group
       = link_to tips_path, class: "icon_link" do
         %i.fas.fa-angle-left
     #tip_wrap.contents
+      %p.post_desc
+        = @tip.description
       = @tip.to_html
-
     = render "sns_links"
