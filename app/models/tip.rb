@@ -19,8 +19,11 @@ class Tip < ApplicationRecord
       autolink: true,
       space_after_headers: true,
       fenced_code_blocks: true,
+      tables: true,
+      hard_wrap: true,
       lax_html_blocks: true,
-      xhtml: true
+      xhtml: true,
+      strikethrough: true
     }
     markdown = Redcarpet::Markdown.new(render, options)
     markdown.render(self.contents).html_safe
