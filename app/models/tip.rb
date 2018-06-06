@@ -22,7 +22,6 @@ class Tip < ApplicationRecord
       tables: true,
       hard_wrap: true,
       lax_html_blocks: true,
-      xhtml: true,
       strikethrough: true
     }
     markdown = Redcarpet::Markdown.new(render, options)
