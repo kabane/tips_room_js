@@ -6,4 +6,5 @@
     %strong Contents:
     = @tip.to_html
   = link_to 'Edit', edit_admin_tip_path(@tip) if current_user.present? && current_user.admin?
+  = link_to 'Delete', admin_tip_path(@tip), method: :delete, data: {confirm: "本当に削除しますか？"} if current_user.present? && current_user.admin?
   = link_to 'Back', admin_tips_path

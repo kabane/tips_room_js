@@ -14,6 +14,9 @@
                 = tip.contents
               %a.card-link
                 = link_to 'Show', admin_tip_path(tip)
+                - if current_user.present? && current_user.admin?
+                  = link_to 'Delete', admin_tip_path(tip), method: :delete, data: {confirm: "本当に削除しますか？"}
+
               - if tip.draft?
                 %span.badge.badge-secondary
                   = "下書き"
