@@ -11,6 +11,7 @@ class TipsController < ApplicationController
   # GET /tips/1.json
   def show
     @tip = Tip.find(params[:id])
+    @tips = Tip.published_only.limit(6)
     if @tip.draft?
       redirect_to tips_path
     end

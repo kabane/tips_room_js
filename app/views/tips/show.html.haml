@@ -3,15 +3,72 @@
                 og: { title: :title,
                       url: request.original_url,
                       description: :description }
-.container
-  .contents_wrap
-    %h1.post_title
-      = @tip.title
-    .icon_group
-      = link_to tips_path, class: "icon_link" do
-        %i.fas.fa-angle-left
-    #tip_wrap.contents
-      %p.post_desc
-        = @tip.description
-      = @tip.to_html
-    = render "sns_links"
+
+%body
+  .bodyContent
+    %header.siteHeader
+      .wrap
+        %figure.siteHeader__logo
+          = link_to image_tag("tips/logo.svg", width: 220), root_path
+    / ***** main visual
+    %section.postTitle
+      .wrap
+        %h1.postTitle__index
+          = @tip.title
+    %main.mainContent
+      .wrap
+        / ***** Article
+        %article.article
+          .article-contents
+            = @tip.to_html
+          / *** sns
+          %aside.article__footer
+            %ul.article__sns
+              %li
+                %a.icon-twitter{"data-show-count" => "false", :href => "https://twitter.com/share?ref_src=twsrc%5Etfw"}
+                %script{:async => "", :charset => "utf-8", :src => "https://platform.twitter.com/widgets.js"}
+              %li
+                %a.icon-pocket{"data-lang" => "en", "data-pocket-count" => "horizontal", "data-pocket-label" => "pocket"}
+                :javascript
+                  !function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");
+              %li
+                %a.icon-hatena{"data-hatena-bookmark-layout" => "basic-counter", :href => "http://b.hatena.ne.jp/entry/", :title => "このエントリーをはてなブックマークに追加"}
+                %script{:async => "async", :charset => "utf-8", :src => "https://b.st-hatena.com/js/bookmark_button.js", :type => "text/javascript"}
+            / ** back
+            %footer.article__back
+              .button.-secondary
+                = link_to "一覧に戻る", root_path
+            / //
+          / ///
+        / /////
+        / ***** ad
+        .ad.ad--article
+          %a{:href => ""}
+            %img{:alt => "", :src => "https://s.yimg.jp/images/bank/campaign/201806/bn/580_508.png"}/
+        / /////
+        / ***** Other
+        %section.relatedPosts
+          %h2.relatedPosts__index
+            その他のTips
+          %ul.panels
+            - @tips.each do |tip|
+              %li.panel
+                = link_to tip_path(tip), class: 'panel__wrap' do
+                  %h2.panel__index
+                    = tip.title
+            %li.panel.-ad
+              %a.panel__wrap{:href => ""}
+                %h2.panel__index
+                  やばい広告やばい広告やばい広告やばい広告やばい広告
+                %ul.panel__tags
+                  %li Array
+                  %li Array
+          / /////
+  %footer.siteFooter
+    .wrap
+      %ul.siteFooter__sns
+        %li.tw
+          %a.icon-twitter{:href => ""}
+      .siteFooter__copy
+        (c) Tips_room.js All.righTs  reserved.
+  %i.siteBg

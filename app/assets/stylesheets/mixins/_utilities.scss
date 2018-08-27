@@ -1,0 +1,237 @@
+@charset "UTF-8";
+//////////////////////////////////////////
+
+//utilitie classes
+
+//include by style.scss
+
+//////////////////////////////////////////
+
+
+//////////////////
+
+// block level
+
+//////////////////
+
+%inner{
+	max-width: $innerWidth;
+	margin-left: auto;
+	margin-right: auto;
+	box-sizing: border-box;
+}
+
+.wrap{
+	width: 92%;
+	margin-left: auto;
+	margin-right: auto;	
+	// box-sizing: border-box;
+	
+	@include break( tab, min ){
+		max-width: 1000px;
+	}
+}
+
+.inner{
+	@extend %inner;
+}
+
+
+.clearfix{
+	@include clearfix();
+}
+
+
+
+//////////////////
+
+// responsive
+
+//////////////////
+
+
+////////スマホで非表示
+
+.only-sp{
+	display: none!important;
+}
+@include break( sp ){
+	.no-sp{
+		display: none!important;	
+	}
+	.only-sp{
+		display: inherit!important;
+	}
+} //max 580
+
+.only-tab{
+	display: none!important;
+}
+@include break( tab ){
+	.no-tab{
+		display: none!important;	
+	}
+	.only-tab{
+		display: inherit!important;
+	}
+} //max 780
+
+
+
+//////////////////
+
+// status
+
+//////////////////
+
+.-notActive{
+	pointer-events:none;
+}
+
+// .active{
+// 	font-weight: bold;
+// }
+
+.js-effect{
+	transition: transition( );
+}
+
+
+
+//////////////////
+
+// typography
+
+//////////////////
+
+.-xxlarge{ font-size: $xxlarge;}
+.-xlarge{ font-size: $xlarge;}
+.-large{ font-size: $large;}
+.-small{ font-size: $small; }
+
+.-underline{
+	padding-bottom: 2px;
+	border-bottom: solid 1px;
+}
+
+.-marker{
+	background: -webkit-linear-gradient(transparent 0%, #dfffff 0%);
+	background: -o-linear-gradient(transparent 0%, #dfffff 0%);
+	background: linear-gradient(transparent 0%, #dfffff 0%);	
+}
+
+.-textcentering{
+	text-align: center;
+}
+.-textright{
+	text-align: right;
+}
+.-textleft{
+	text-align: left;
+}
+
+
+
+//////////////////
+
+// block level elements
+
+//////////////////
+
+.information{
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	padding: 1em;
+	border: solid 1px $border;
+}
+
+
+.boxes{
+	display: flex;
+	flex-direction: row;
+	// flex-wrap: wrap;
+	
+	&__child{
+		&:not( :last-child ){
+			margin-right: 1em;
+		}
+	}
+	
+	&.-center{
+		justify-content: center;
+	}
+
+	.information{
+		&:not( :last-child ){
+			border-right: none;
+		}
+	}
+}
+
+
+
+//////////////////
+
+// layout
+
+//////////////////
+
+.-centering{	
+	margin-left: auto;
+	margin-right: auto;
+}
+.-right{
+	margin-left: auto;
+}
+.-left{
+	margin-right: auto;
+}
+
+
+//////////////////
+
+// icon
+
+//////////////////
+
+.icon-twitter{
+	@include iconfont(
+		$content: '\f099',
+		$icon-margin-right: 0, 
+		$top : 0, 
+		$font-size: 22px
+	 );
+}
+.icon-facebook{
+	@include iconfont(
+		$content: '\f09a',
+		$icon-margin-right: 0, 			
+		$top : 0, 
+		$font-size: 22px
+	 );
+}
+.icon-instagram{
+	@include iconfont(
+		$content: '\f16d',
+		$icon-margin-right: 0, 			
+		$top : 0, 
+		$font-size: 22px
+	 );
+}
+.icon-pocket{
+	@include iconfont(
+		$content: '\f265',
+		$icon-margin-right: 0, 			
+		$top : 0, 
+		$font-size: 22px
+	 );
+}
+.icon-hatena{
+	&:before{
+		content: "B!";
+		font-size: 22px;
+		line-height: 1;
+		display: inline-block;
+		font-weight: bold;
+	}
+}

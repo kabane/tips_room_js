@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "static#top"
+  root to: "tips#index"
 
   devise_for :users, path: 'admin/users', controllers: {
     sessions: "admin/users/sessions"

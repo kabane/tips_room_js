@@ -1,22 +1,25 @@
-.container
-  %p#notice
-    = notice
-  .contents_wrap
-    %h1.head_text.under_line
-      All Tips
-    .icon_group.under_line
-      = link_to root_path, class: "icon_link" do
-        %i.fas.fa-home
-      -#= link_to tips_path, class: "icon_link" do
-      -#  %i.fas.fa-search
-    .tips_list
-      - @tips.each do |tip|
-        .tip_wrap.wow.fadeInLeft{data: {"wow-duration": "1.6s"}}
-          %h2.tip_title
-            = link_to tip.title, tip
-          %p.tip_desc
-            = tip.description
-          .read_btn
-            = link_to 'Read More', tip_path(tip), class: "btn btn-md"
-%script
-  new WOW().init();
+.bodyContent
+  %section.mv
+    .wrap
+      %p.mv__logo
+        = image_tag("tips/logo.svg", width: 220)
+      %h1.mv__copy
+        「あの処理JavaScriptで書く時どうするんだっけ？」
+        %br/
+        を解決するJavaScriptのtips集
+  %main.mainContent
+    .wrap
+      %ul.panels
+        - @tips.each do |tip|
+          %li.panel
+            = link_to tip_path(tip), class: 'panel__wrap' do
+              %h2.panel__index
+                = tip.title
+  %footer.siteFooter
+    .wrap
+      %ul.siteFooter__sns
+        %li.tw
+          %a.icon-twitter{:href => ""}
+      .siteFooter__copy
+        (c) Tips_room.js All.righTs  reserved.
+  %i.siteBg

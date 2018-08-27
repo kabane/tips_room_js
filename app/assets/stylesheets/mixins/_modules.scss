@@ -1,0 +1,354 @@
+//////////////////////////////////////////
+
+//module
+
+//include by style.scss
+
+//////////////////////////////////////////
+
+
+
+
+//////// background setting
+body{
+	position: relative;
+	background-color: $blue;
+	background: linear-gradient( to bottom right, $blue, #2720bb );
+
+	@include break( sp,min ){
+		min-height: 100vh;
+		// overflow: hidden;
+	}
+}
+
+.bodyContent{
+	position: relative;
+	z-index: 1;
+}
+
+.siteBg{
+	display: block;
+	width: percentage( 840 / 750 );
+	margin: auto;
+	padding-top: percentage( 1145 / 840);
+	position: fixed;
+	z-index: -1;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	mix-blend-mode: overlay;
+	opacity: 0.35;
+	background-image: image_url("tips/bg.png");
+    background: top center repeat-y;
+	background-size: 100% auto;
+
+	@include break( 1024, min ){
+		width: 100%;
+		padding-top: 100%;
+		background-image: image_url("tips/bg-pc.png");
+		opacity: 0.1;
+	}
+	@include break( 1680, min ){
+	}
+}
+
+
+
+
+
+
+////////////////////
+
+// header
+
+////////////////////
+
+/////// ヘッダー ラッパー
+.siteHeader
+{
+	width: 100%;
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	right: 0;
+	left: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	line-height: 1;
+	text-align: center;
+	transition: transition();
+
+
+	&__logo img{
+		max-width: 100px;
+	}
+
+}
+
+.-is-scrolling .siteHeader{
+	background-color: $blue;
+}
+
+
+
+
+////////////////////
+
+// footer
+
+////////////////////
+
+.siteFooter
+{
+	margin-top: 60px;
+	padding-bottom: 30px;
+	line-height: 1;
+	color: #fff;
+
+	.wrap{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__sns{
+
+		li{
+			display: inline-block;
+			list-style: none;
+		}
+	}
+
+	&__copy{
+		font-family: fontoposolid-regular, sans-serif;
+		font-size: 1rem;
+
+		@include break( sp, min ){
+			font-size: small;
+		}
+	}
+
+}
+
+
+
+
+////////////////////
+
+// backtotop
+
+////////////////////
+
+.backtotop{
+
+}
+
+
+
+
+
+////////////////////
+
+// panel
+
+////////////////////
+
+$margin: 20 / 690;
+.panels{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: percentage( -1  *$margin );
+
+	.panel{
+		width: percentage( 0.5 - $margin/2);
+		margin-bottom: percentage( 1 * $margin);
+
+		@include break( sp, min ){
+			width: percentage( 0.3333333 - $margin /1.25 );
+		}
+	}
+
+	.panel:not( :nth-child( even ) ){
+		@include break( sp ){
+			margin-right: percentage( 1 * $margin );
+		}
+	}
+
+	.panel:not( :nth-child( 3n ) ){
+		@include break( sp,min ){
+			margin-right: percentage( 1 * $margin );
+		}
+
+	}
+
+}
+
+
+.panel{
+	display: flex;
+
+	a{
+		color: $basefontColor;
+		transition: transition( all, 0.3s);
+	}
+
+	a,
+	.panel__wrap{
+		width: 100%;
+		box-sizing: border-box;
+		padding-top: 10px;
+		padding-right: 20px;
+		padding-bottom: 10px;
+		padding-left: 10px;
+		position: relative;
+		bottom: 0;
+		display: block;
+		border-radius: 3px;
+		background-color: #fff;
+		box-shadow: 0px 4.5px 5px rgba( $navy, 0.4 );
+
+		@include break( sp, min ){
+			padding-top: 30px;
+			padding-right: 30px;
+			padding-bottom: 30px;
+			padding-left: 20px;
+		}
+
+		@include iconfont(
+				$content: '\f105',
+				$dir: right
+			);
+
+		&:after{
+			height: 1em;
+			margin-top: auto;
+			margin-bottom: auto;
+			top: 0;
+			right: 10px;
+			bottom: 0;
+			position: absolute;
+		}
+
+		transition-timing-function: ease;
+		@include mouseOver(){
+			background-color: #f0f0f0;
+		}
+	}
+
+
+	&__index{
+		line-height: 1.5;
+		font-weight: bold;
+	}
+
+
+	&__tags{
+		margin-top: 7px;
+		margin-left: 0;
+		padding-left: 0;
+		list-style: none;
+		font-size: 1.1rem;
+		color: #555;
+
+		li{
+			line-height: 1.1;
+			margin-top: 5px;
+			margin-right: 10px;
+			display: inline-block;
+
+			@include iconfont(
+				$content: '\f121'
+			);
+		}
+	}
+
+	&.-ad .panel__tags li:before{
+		display: none;
+	}
+
+}
+
+
+
+
+
+////////////////////
+
+// button
+
+////////////////////
+
+.button{
+	display: inline-block;
+	
+	@include break( sp,min ){
+		min-width: 300px;
+	}
+
+	&.-primary a{
+		background-color: $pink;
+		
+		// &:before{
+		// 	background-color: $pink
+		// }		
+	}
+	&.-secondary a{
+		background-color: $basefontColor;
+		
+		// &:before{
+		// 	background-color: $basefontColor
+		// }		
+	}
+
+	a{
+		padding: 1em 2em 1em 1em;
+		display: block;
+		position: relative;
+		border-radius: 3px;
+		text-align: center;
+		color: #fff;
+
+		@include iconfont(
+			$content: '\f101',
+			$dir: right
+		);
+		
+		&:before{
+			content: " ";
+			width: 0;
+			height: 100%;
+			transition: transition();
+			display: block;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			opacity: 0.2;
+			background-color: #fff;
+		}
+
+		&:after{
+			height: 1em;
+			margin-top: auto;
+			margin-bottom: auto;
+			position: absolute;
+			top: 0;
+			right: 10px;
+			bottom: 0;
+
+		}
+
+
+		@include mouseOver(){
+			&:before{
+				width: 100%;
+				right: auto;
+				left: 0;
+			}
+		}
+
+	}
+}
