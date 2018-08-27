@@ -25,14 +25,11 @@
           %aside.article__footer
             %ul.article__sns
               %li
-                %a.icon-twitter{"data-show-count" => "false", :href => "https://twitter.com/share?ref_src=twsrc%5Etfw"}
-                %script{:async => "", :charset => "utf-8", :src => "https://platform.twitter.com/widgets.js"}
+                = link_to "", "https://twitter.com/share?text=#{@tip.title}&url=#{tip_path(@tip)}", {class: "icon-twitter", rel: "noflow",  onClick: "window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;"}
               %li
-                %a.icon-pocket{"data-lang" => "en", "data-pocket-count" => "horizontal", "data-pocket-label" => "pocket"}
-                :javascript
-                  !function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");
+                = link_to "", "http://getpocket.com/edit?url=#{tip_path(@tip)}&title=#{@tip.title}", {class: "icon-pocket", data: {lang: "en", "pocket-count": "horizontal", "pocket-label": "pocket"}, onclick: "window.open(this.href, 'PCwindow', menubar=no, toolbar=no, scrollbars=yes'); return false;"}
               %li
-                %a.icon-hatena{"data-hatena-bookmark-layout" => "basic-counter", :href => "http://b.hatena.ne.jp/entry/", :title => "このエントリーをはてなブックマークに追加"}
+                = link_to "", "http://b.hatena.ne.jp/add?mode=confirm&url=#{tip_path(@tip)}&title=#{@tip.title}", {class: "icon-hatena", rel: "noflow"}
                 %script{:async => "async", :charset => "utf-8", :src => "https://b.st-hatena.com/js/bookmark_button.js", :type => "text/javascript"}
             / ** back
             %footer.article__back
